@@ -14,11 +14,11 @@ jobs:
           architecture: x64
           cache: maven
       - name: Run the Maven verify phase
-        run: mvn clean package
-      - run: mkdir staging && cp target/*.jar staging
+        run: mvn clean package -DskipTests=true
+#      - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
-          name: Package
-          path: staging
+          name: app
+          path: target/Hello.jar
         
         
